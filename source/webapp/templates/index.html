@@ -18,9 +18,9 @@
         </div>
     {% if result is not None %}
         {% if result == 'success' %}
-            Result: {{ result }}
+            Result: {{ message }}
         {% else %}
-            Error: {{ result }}
+            Error: {{ message }}
         {% endif %}
     {% endif %}
 </form>

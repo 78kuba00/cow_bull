@@ -15,7 +15,7 @@ def play(request):
         if not Game.is_valid_count(numbers_str):
             context = {
                 "result": 'error',
-                "message": "Please enter 4 number spearated by space",
+                "message": "Please enter 4 number separated by space",
             }
         elif not Game.is_unique_numbers(numbers_str):
             context = {
