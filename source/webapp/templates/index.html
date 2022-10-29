@@ -11,11 +11,18 @@
 </head>
 <body>
 <form action="/" method="POST">
-    <% csrf_token %>
+    {% csrf_token %}
     Enter numbers splitted by space: <input type="text" name="numbers"/><br>
         <div class="input-group">
             <input type="submit" value="Guess">
         </div>
+    {% if result is not None %}
+        {% if result == 'success' %}
+            Result: {{ result }}
+        {% else %}
+            Error: {{ result }}
+        {% endif %}
+    {% endif %}
 </form>
 </body>
 </html>
