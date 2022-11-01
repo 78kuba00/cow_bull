@@ -1,6 +1,7 @@
 class Game:
     def play(number_guess_list, number_computer_list):
         cow_numbers, bull_numbers = [], []
+        attempt = 1
         try:
             for index in range(len(number_guess_list)):
                 if number_computer_list[index] == int(number_guess_list[index]):

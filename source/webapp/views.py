@@ -3,8 +3,12 @@ from .game import Game
 import random
 
 # Create your views here.
+
+attempt = []
+step = 0
 def play(request):
     secret_combination = [1, 2, 3, 4]
+    global step
     if request.method == "GET":
         context = {
             "result": None,
@@ -33,10 +37,14 @@ def play(request):
             }
         else:
             result = Game.play(numbers_str, secret_combination)
+            print(result)
+            step += 1
+            attempt.append({'step': step, 'result': f"Cows {len(result[0])} Bulls {len(result[1])}"})
+            print(attempt)
             context = {
                 "result": 'success',
                 "message": f"Cows {len(result[0])} Bulls {len(result[1])}",
-                "list_of_attempts": 'history',
+                "list_of_attempts": attempt,
             }
     return render(request, "index.html", context)
 
