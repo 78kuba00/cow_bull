@@ -29,3 +29,16 @@ class Game:
             if int(x) < 1 or int(x) > 9:
                 return False
             return True
+
+    # def history(request):
+    #     game_history = []
+    #     attempt = 1
+    #     if game_history:
+    #         attempt += game_history[+1]['attempt']
+    #         print (attempt)
+    #         game_history.append(
+    #             {
+    #                 'attempt': attempt,
+    #                 'result': f" Cows {cow_numbers} Bulls: {bull_numbers}",
+    #             }
+    #         )

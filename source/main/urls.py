@@ -19,5 +19,5 @@ from webapp.views import play
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', play)
+    path('', play),
 ]

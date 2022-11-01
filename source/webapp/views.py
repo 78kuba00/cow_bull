@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .game import Game
+import random
 
 # Create your views here.
 def play(request):
@@ -16,22 +17,28 @@ def play(request):
             context = {
                 "result": 'error',
                 "message": "Please enter 4 number separated by space",
+                "list_of_attempts": 'history',
             }
         elif not Game.is_unique_numbers(numbers_str):
             context = {
                 "result": 'error',
                 "message": "Numbers are not unique",
+                "list_of_attempts": 'history',
             }
         elif not Game.is_valid_range(numbers_str):
             context = {
                 "result": 'error',
                 "message": "Numbers must be 1-9",
+                "list_of_attempts": 'history',
             }
         else:
             result = Game.play(numbers_str, secret_combination)
             context = {
                 "result": 'success',
                 "message": f"Cows {len(result[0])} Bulls {len(result[1])}",
+                "list_of_attempts": 'history',
             }
-
     return render(request, "index.html", context)
+
+
+
